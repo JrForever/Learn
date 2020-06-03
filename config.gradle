@@ -1,0 +1,23 @@
+ext{
+    /**
+     * 这种定义叫集合,数据可以同时含有多种数据结构
+     * 读取方式可以
+     * 1、rootProject.ext.name 和 rootProject.ext.age
+     * 2、rootProject.ext.heheda[0] 和 rootProject.ext.heheda[1]
+     */
+    heheda = [
+            name = 'heheda',
+            age = 29
+    ]
+
+    /**
+     * 这种定义叫Map
+     * 读取方式可以
+     * 1、rootProject.ext.memeda.banji和 rootProject.ext.memeda.grade
+     * 2、rootProject.ext.memeda['banji'] 和 rootProject.ext.memeda['grade']
+     */
+    memeda = [
+            banji : "three class",
+            grade : 2
+    ]
+}

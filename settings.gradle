@@ -1,0 +1,5 @@
+include ':app', ':jsjiaohu'
+include ':tinker-master'
+include ':library-one'
+include ':library-two'
+include ':library-main'

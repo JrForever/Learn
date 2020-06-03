@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    implementation project(path: ':library-two')
+//    implementation project(path: ':library-one')
+    implementation 'com.jian:libraryOne:1.0'
+    implementation 'com.jian:libraryTwo:1.0'
+}
+
+apply plugin: 'maven'
+
+uploadArchives{
+    repositories.mavenDeployer{
+        // Ubuntu本地仓库路径， Windows 为(url:"file://D://***/***/***/")
+        repository(url:"file://F://loaclMaven/repo")
+        // 唯一标识
+        pom.groupId = "com.jian.test"
+        // 项目名称
+        pom.artifactId = "libraryMain"
+        // 版本号
+        pom.version = "1.0"
+    }
+}
